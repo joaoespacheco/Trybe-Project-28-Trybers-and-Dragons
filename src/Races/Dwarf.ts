@@ -1,15 +1,15 @@
 import Race from './Race';
 
 class Dwarf extends Race {
-  private static _dwarfCounter = 0;
+  private static _count = 0;
 
   constructor(name: string, dexterity: number, public maxLifePoints = 80) {
     super(name, dexterity);
-    Dwarf._dwarfCounter += 1;
+    Dwarf._count += 1;
   }
 
   public static createdRacesInstances() {
-    return Dwarf._dwarfCounter;
+    return Dwarf._count;
   }
 }
 
