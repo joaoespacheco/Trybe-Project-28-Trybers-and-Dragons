@@ -33,13 +33,15 @@ class PVE extends Battle {
 
   public fight(): number {
     const { player01, monsters } = this;
-    const monstersAlive = monsters.filter(({ lifePoints }) => lifePoints > 0);
+    let monstersAlive = this.monsters;
+
     while (
       player01.lifePoints > 0
       && monsters.some(({ lifePoints }) => lifePoints > 0)
     ) {
       this.playerAttackMonsters(monstersAlive);
       this.monstersAttackPlayer(monstersAlive);
+      monstersAlive = monsters.filter(({ lifePoints }) => lifePoints > 0);
     }
 
     return super.fight();
